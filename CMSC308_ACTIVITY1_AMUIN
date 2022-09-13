@@ -1,0 +1,26 @@
+using System;
+
+namespace PairingArrays
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{			
+			string[] usernames = {"Josh", "DA", "Russ"};
+			
+			string[] email = {"josh@gmail.com", "DA@gmail.com", "Russ@gmail.com"};
+			
+			string[] Password = {"Josh123", "DA123", "Russ123"};
+
+			Console.Write(" Index   : ");
+			int index = Convert.ToInt32(Console.ReadLine());
+
+			Console.WriteLine(" Email   : " +email[index]);
+			Console.WriteLine(" Username: " +usernames[index]);
+			Console.WriteLine(" Password: " +Password[index]);
+			
+			Console.WriteLine("\nPress Any Key to Close....");
+			Console.ReadKey(true);
+		}
+	}
+}
