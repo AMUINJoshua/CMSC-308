@@ -1,0 +1,69 @@
+import java.util.*;
+
+public class Midterm {
+
+    public static void main(String[] args) throws Exception {
+        Scanner scn = new Scanner(System.in);
+        Boolean loop = true;
+
+        while (loop == true) {
+            System.out.print(" Number of test cases: ");
+            int CaseNum = scn.nextInt();
+            List<String> CaseResults = new ArrayList<String>();
+
+            if (CaseNum > 0) {
+                for (int i = 0; i < CaseNum; i++) {
+                    System.out.print(" No. of Holidays: ");
+                    int Numholidays = scn.nextInt();
+                    scn = new Scanner(System.in);
+                    System.out.print(" Day of Holidays: ");
+                    String input = scn.nextLine();
+
+                    String[] inputs = input.split("\\s+");
+
+                    if (Numholidays == inputs.length) {
+                        CaseResults.add(StringHolidays(inputs));
+                    } else {
+
+                        System.out.println("\n Error Invalid Input");
+                        CaseResults.add(" Invalid Case");
+                    }
+                }
+
+                System.out.println();
+                for (int i = 0; i < CaseResults.size(); i++) {
+                    System.out.println(
+                            String.format(" Number of holidays for Test Case %s: %s ", i + 1, CaseResults.get(i)));
+                }
+                loop = false;
+            } else {
+                System.out.println(" Invalid Number of Test Cases");
+            }
+        }
+        scn.close();
+    }
+
+    private static String StringHolidays(String[] inputs) {
+        HashSet<Integer> holidays = new HashSet<Integer>(Arrays.asList(6, 7, 13, 14, 20, 21, 27, 28));
+        int[] Inputs = new int[inputs.length];
+
+        try {
+            for (int i = 0; i < Inputs.length; i++) {
+                Inputs[i] = Integer.parseInt(inputs[i]);
+            }
+
+        } catch (Exception e) {
+            return " Invalid Input On This Test Case";
+        }
+        for (int input : Inputs) {
+            holidays.add(input);
+        }
+
+        // Sorting HashSet using List
+        List<Integer> sortedHolidays = new ArrayList<Integer>(holidays);
+        Collections.sort(sortedHolidays);
+
+        String result = String.format("%s %s", sortedHolidays.size(), sortedHolidays);
+        return result;
+    }
+}
