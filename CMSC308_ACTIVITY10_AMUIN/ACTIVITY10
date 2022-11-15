@@ -1,0 +1,74 @@
+using System;
+using System.Collections;
+
+namespace Activity10
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Queue ele = new Queue();
+			string choose;
+			do{
+			Console.Clear();
+			Console.WriteLine("\n ======== Q U E U E  M E N U ========");
+			Console.WriteLine("      [1] ADD AN ELEMENT");
+			Console.WriteLine("      [2] REMOVE FRONT ELEMENT");
+			Console.WriteLine("      [3] SEARCH AN ELEMENT");
+			Console.WriteLine("      [4] DISPLAY QUEUE ELEMENTS");
+			Console.WriteLine("      [5] EXIT \n");
+			Console.Write("      Enter choice: ");
+			choose = Console.ReadLine();
+
+			switch(choose){
+				case "1":
+					Console.Clear();
+				    Console.WriteLine("\n ===== A D D  A N  E L E M E N T =====\n");
+				    Console.Write(" Enter Element: ");
+				    string elem = Console.ReadLine();
+				    ele.Enqueue(elem);
+				    Console.WriteLine("\n       Element Successfully Added!");
+				    break;
+				    
+			  	case "2":
+				    Console.Clear();
+				    Console.WriteLine("\n ===== R E M O V E  F R O N T  E L E M E N T =====");
+				    Console.WriteLine("\n REMOVED FRONT ELEMENT: "+ele.Dequeue());
+				    Console.WriteLine("\n       Front Element Successfully Removed!");
+				    Console.ReadLine();
+				    break;
+
+			 	 case "3":
+				    Console.Clear();
+				    Console.WriteLine("\n ===== S E A R C H  A N  E L E M E N T =====");
+				    Console.Write("\n Search Element: ");
+				    string find = Console.ReadLine();
+				    
+				    if (ele.Contains(find) == true) {
+            			Console.WriteLine("\n Element available...!!\n");
+        			}
+			        else {
+			            Console.WriteLine("\n Element not available...!!\n");
+				    }
+					Console.WriteLine("\n       Press any key to Exit...");
+					Console.ReadLine();
+				    break;
+				    	
+			  	case "4":
+				   Console.Clear();
+				   Console.WriteLine("\n ===== D I S P L A Y  Q U E U E  E L E M E N T S =====");
+				    foreach (string e in ele) {
+				    	Console.Write("\n "+e);}
+				   Console.ReadLine();
+				    break;
+				    
+			 	 case "5":
+				    break;
+			}
+				
+			}while(choose != "5");
+			
+			Console.ReadKey(true);
+		}
+	}
+}
